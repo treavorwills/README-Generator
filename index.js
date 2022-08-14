@@ -7,8 +7,12 @@ const markdown = require('./utils/generateMarkdown.js')
 // TODO: Create an array of questions for user input
 const questions = [
     {
+        name: 'username',
+        message: 'Github username: ',
+    },
+    {
         name: 'title',
-        message: 'Title: ',
+        message: 'Project title: ',
     },
     {
         name: 'description',
@@ -17,6 +21,7 @@ const questions = [
     {
         name: 'link',
         message: 'Link: ',
+        default: 'None',
     },
     {
         type: 'list',
@@ -25,33 +30,35 @@ const questions = [
         choices: ['Yes', 'No'],
     },
     {
-        type: 'list',
-        name: 'hasAdditionalContent',
-        message: 'Additional Content?',
-        choices: ['Yes', 'No'],
-    },
-    {
-        name: 'additionalContent',
-        message: 'The additional content: ',
+        name: 'screenshotDescription',
+        message: 'brief descrition of the screenshot',
         when: (answers) => {
-            if (answers.hasAdditionalContent === 'Yes') {
-                return true;
-            }
+            if (answers.hasScreenshot === 'Yes') return true;
         },
     },
-    // {
-    //     type: 'checkbox',
-    //     name: 'sections',
-    //     message: `Additional README sections: `,
-    //     choices: [
-    //         'Table of Contents', 'Installation', 'Usage', 'Credits', 'Licesnse', 'Badges', 'Features', 'How to Contribute', 'Tests',
-    //     ],
-    // },
+    {
+        type: 'checkbox',
+        name: 'additionalContent',
+        message: `Additional content: `,
+        choices: [
+            'License', 'Badges',
+        ],
+    },
+    {
+        name: 'license',
+        message: 'License: ',
+        when: (answers) => (answers.additionalContent.includes('License'))
+    },
+    {
+        name: 'badge',
+        message: 'badge: ',
+        when: (answers) => (answers.additionalContent.includes('Badge'))
+    },
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, data, (err) => err ? console.log(err) : console.log('Success!'));
+    fs.writeFileSync(fileName, data, (err) => err ? console.info(err) : console.info('Success!'));
 }
 
 // TODO: Create a function to initialize app

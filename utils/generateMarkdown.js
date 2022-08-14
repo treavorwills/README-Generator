@@ -2,6 +2,13 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
 
+const licenseBadge = () => {
+  if (this.license != '') {
+    console.log(this.license);
+    return this.license;
+  }
+};
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
@@ -11,6 +18,9 @@ function generateMarkdown(data) {
   ${data.link}
 
 ## Screenshot
+
+## License
+  ${data.license}
 `;
 }
 
