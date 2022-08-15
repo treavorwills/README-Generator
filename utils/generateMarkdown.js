@@ -9,19 +9,43 @@ const licenseBadge = () => {
   }
 };
 
+// function generateSections(data) {
+//   let sections = {
+//     title: `# ${data.title}`,
+//   },
+//   sections.description = {
+//     description: `## Description
+//     ${data.description}`,
+//   },
+// }
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-  ${data.description}
+  let sections = {
+    title: `# ${data.title}`,
+  };
+  sections.description =`## Description
+${data.description ? data.description : ''}`;
+  sections.link = `## Link
+${data.link ? '[' + data.link + ']('+ data.link + ')' : ''}`
 
-## Link
-  ${data.link}
+  const markdown = 
+  `${sections.title}
+  ${sections.description}
+  ${sections.link}`;
 
-## Screenshot
+  return markdown;
+//   `# ${data.title}
+//   ${data.description}
 
-## License
-  ${data.license}
-`;
+// ## Link
+//   ${data.link}
+
+// ## Screenshot
+
+// ## License
+//   ${data.license}
+// `
 }
 
 module.exports = generateMarkdown;
