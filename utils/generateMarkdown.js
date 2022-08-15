@@ -24,28 +24,43 @@ function generateMarkdown(data) {
   let sections = {
     title: `# ${data.title}`,
   };
+  sections.username = `### [ GitHub: ${data.username} ]( https://github.com/${data.username} )`;
   sections.description =`## Description
-${data.description ? data.description : ''}`;
+${data.description}`;
+  sections.installation = `## Installation
+${data.installation}`;
   sections.link = `## Link
-${data.link ? '[' + data.link + ']('+ data.link + ')' : ''}`
+[ ${data.link} ]( ${data.link} )`;
+  sections.usage = `## Usage
+${data.usage}`;
+  if (data.hasScreenshot === 'Yes') {
+    sections.screenshot = `### Screenshot
+![alt text](../assets/images/screenshot.png)`
+  };
+  sections.credit = `## Credits
+${data.credits}`;
+  sections.license = `## License
+${data.license}`;
+  sections.badge = `## Badge
+${data.badge}`;
+  sections.features = `## Features
+${data.features}`;
+
 
   const markdown = 
-  `${sections.title}
-  ${sections.description}
-  ${sections.link}`;
+  `${data.title ? sections.title : ''}
+${data.username ? sections.username : ''}
+${data.description ? sections.description : ''}
+${data.link ? sections.link : ''}
+${data.installation ? sections.installation : ''}
+${data.usage ? sections.usage : ''}
+${data.hasScreenshot === 'Yes' ? sections.screenshot : ''}
+${data.credits ? sections.credits : ''}
+${data.license ? sections.license : ''}
+${data.badge ? sections.badge : ''}
+${data.features ? sections.features : ''}`;
 
   return markdown;
-//   `# ${data.title}
-//   ${data.description}
-
-// ## Link
-//   ${data.link}
-
-// ## Screenshot
-
-// ## License
-//   ${data.license}
-// `
-}
+};
 
 module.exports = generateMarkdown;

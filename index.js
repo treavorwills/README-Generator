@@ -7,52 +7,50 @@ const markdown = require('./utils/generateMarkdown.js')
 // TODO: Create an array of questions for user input
 const questions = [
     {
-        name: 'username',
-        message: 'Github username: ',
+        name: 'title',
+        message: 'Project Title: ',
     },
     {
-        name: 'title',
-        message: 'Project title: ',
+        name: 'username',
+        message: 'GitHub Username: ',
     },
     {
         name: 'description',
         message: 'Description: ',
     },
     {
+        name: 'installation',
+        message: 'Installation Notes: ',
+    },
+    {
         name: 'link',
         message: 'Link: ',
-        default: 'None',
+    },
+    {
+        name: 'usage',
+        message: 'Instructions and examples for use: ',
     },
     {
         type: 'list',
         name: 'hasScreenshot',
-        message: 'Do you have a screenshot?',
+        message: 'Do you have a screenshot saved in the following location: assets/images/screenshot.png?',
         choices: ['Yes', 'No'],
     },
     {
-        name: 'screenshotDescription',
-        message: 'brief descrition of the screenshot',
-        when: (answers) => {
-            if (answers.hasScreenshot === 'Yes') return true;
-        },
-    },
-    {
-        type: 'checkbox',
-        name: 'additionalContent',
-        message: `Additional content: `,
-        choices: [
-            'License', 'Badges',
-        ],
+        name: 'credits',
+        message: 'List collaborators, GitHub profiles, thirdy-party assets, tutorials: ',
     },
     {
         name: 'license',
         message: 'License: ',
-        when: (answers) => (answers.additionalContent.includes('License'))
     },
     {
         name: 'badge',
-        message: 'badge: ',
-        when: (answers) => (answers.additionalContent.includes('Badge'))
+        message: 'Badges: ',
+    },
+    {
+        name: 'features',
+        message: 'If feature rich, list them here: ',
     },
 ];
 
