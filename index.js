@@ -41,12 +41,10 @@ const questions = [
         message: 'List collaborators, GitHub profiles, thirdy-party assets, tutorials: ',
     },
     {
+        type: 'checkbox',
         name: 'license',
         message: 'License: ',
-    },
-    {
-        name: 'badge',
-        message: 'Badges: ',
+        choices: ['MIT', 'Apache 2.0', 'GNU GPLv3'],
     },
     {
         name: 'features',
