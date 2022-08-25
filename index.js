@@ -63,7 +63,7 @@ function init() {
     .prompt(questions)
     .then(answers => {
         console.info('Answer: ', answers);
-        writeToFile('./utils/generatedMarkDown.md', generateMarkdown(answers));
+        writeToFile('./dist/README_MarkDown.md', generateMarkdown(answers));
     });
 }
 
