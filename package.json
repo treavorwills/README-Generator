@@ -1,14 +1,23 @@
 {
-  "name": "static-site",
+  "name": "readme-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ### [ GitHub: treavorwills ]( https://github.com/treavorwills ) ## Description This node application prompts the user for input and generates a professional README.md file ## Link [ https://www.npmjs.com/package/inquirer ]( https://www.npmjs.com/package/inquirer )",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treavorwills/README-Generator.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treavorwills/README-Generator/issues"
+  },
+  "homepage": "https://github.com/treavorwills/README-Generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.4"
+    "inquirer": "^9.1.0"
   }
 }
